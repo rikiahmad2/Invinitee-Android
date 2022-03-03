@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "6990291070",
+    "firebase_url": "https://qr-code-eff4e-default-rtdb.firebaseio.com",
+    "project_id": "qr-code-eff4e",
+    "storage_bucket": "qr-code-eff4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6990291070:android:1f97941949a2654904b82f",
+        "android_client_info": {
+          "package_name": "com.riki.invinitee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6990291070-9gf0iqsu1vu0s4r3a1m0nb6jv0127ehc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4kdFPl_I8FeYmK0vGLDvxiRJslTubKuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6990291070-9gf0iqsu1vu0s4r3a1m0nb6jv0127ehc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6990291070:android:11085276921f564504b82f",
+        "android_client_info": {
+          "package_name": "com.riki.net89"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6990291070-9gf0iqsu1vu0s4r3a1m0nb6jv0127ehc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4kdFPl_I8FeYmK0vGLDvxiRJslTubKuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6990291070-9gf0iqsu1vu0s4r3a1m0nb6jv0127ehc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6990291070:android:1f951fc25c4670fa04b82f",
+        "android_client_info": {
+          "package_name": "com.riki.realtimedatabase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6990291070-9gf0iqsu1vu0s4r3a1m0nb6jv0127ehc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4kdFPl_I8FeYmK0vGLDvxiRJslTubKuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6990291070-9gf0iqsu1vu0s4r3a1m0nb6jv0127ehc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

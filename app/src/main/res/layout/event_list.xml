@@ -39,7 +39,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="This is Title"
                 android:textColor="@android:color/black"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:autoSizeTextType="uniform"/>
 
             <TextView

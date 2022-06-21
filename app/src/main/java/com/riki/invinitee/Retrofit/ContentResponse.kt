@@ -31,6 +31,26 @@ data class BukuTamu(
     val data :ArrayList<DetailBukuTamu>
 )
 
+data class BukuTamuOld(
+    val message : String?,
+    val code : String?,
+    val data :ArrayList<DetailOldBukuTamu>
+)
+
+data class DetailOldBukuTamu(
+    val id_guest : Int?,
+    val tamu : Int?,
+    val undangan : Int?,
+    val suhu : String?,
+    val image : String?,
+    val tamu_hadir : String?,
+    val created_at: String?,
+    val nama_tamu : String?,
+    val status_tamu : String?,
+    val alamat_tamu : String?,
+    val no_wa_tamu : String?,
+)
+
 data class DetailBukuTamu(
     val id_buku_tamu : Int?,
     val id_tamu : Int?,
@@ -46,6 +66,7 @@ data class DetailBukuTamu(
     val no_wa_tamu : String?,
 )
 
+//NEW
 data class storedScan(
     val message: String?,
     val token: String?,
@@ -60,4 +81,20 @@ data class DetailStored(
     val updated_at : String?,
     val created_at : String?,
     val id_buku_tamu : String?,
+)
+
+data class oldScan(
+    val message: String?,
+    val token: String?,
+    val data : DetailStored
+)
+
+data class DetailOld(
+    val image : String?,
+    val tamu : String?,
+    val suhu : String?,
+    val tamu_hadir : String?,
+    val updated_at : String?,
+    val created_at : String?,
+    val id_guest : String?,
 )

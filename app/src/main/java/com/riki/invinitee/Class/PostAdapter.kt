@@ -19,14 +19,15 @@ import com.riki.invinitee.SharedPreferences.PreferencesHelper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
 import com.riki.invinitee.DetailTamuActivity
+import com.riki.invinitee.Retrofit.DetailOldBukuTamu
 import com.squareup.picasso.Picasso
 
 
-class PostAdapter (private val context: Context, private val list:ArrayList<DetailBukuTamu>) : RecyclerView.Adapter<PostAdapter.PostViewHolder>(){
+class PostAdapter (private val context: Context, private val list:ArrayList<DetailOldBukuTamu>) : RecyclerView.Adapter<PostAdapter.PostViewHolder>(){
     private lateinit var sharedpref : PreferencesHelper
 
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bind(postResponse: DetailBukuTamu){
+        fun bind(postResponse: DetailOldBukuTamu){
             sharedpref = PreferencesHelper(context)
             with(itemView){
 
@@ -35,11 +36,11 @@ class PostAdapter (private val context: Context, private val list:ArrayList<Deta
                 val tv_nama_tamu : TextView = findViewById(R.id.tv_namatamu)
                 val tv_suhu : TextView = findViewById(R.id.tv_suhu)
                 val tv_tamuhadir : TextView = findViewById(R.id.tv_tamuhadir)
-                var url : String? = postResponse.foto
+                var url : String? = postResponse.image
 
                 tv_nama_tamu.text = postResponse.nama_tamu
                 tv_suhu.text = "Suhu : ${postResponse.suhu}°C"
-                tv_tamuhadir.text = "${postResponse.jumlah_tamu_hadir} Orang"
+                tv_tamuhadir.text = "${postResponse.tamu_hadir} Orang"
                 if(!url.isNullOrEmpty()) {
                     Picasso.get().load(url).into(iv_image)
                 }
@@ -47,16 +48,14 @@ class PostAdapter (private val context: Context, private val list:ArrayList<Deta
                 itemView.setOnClickListener {
                     val bundle = Bundle()
                     val intent = Intent(context, DetailTamuActivity::class.java)
-                    bundle.putString("id_buku_tamu", postResponse.id_buku_tamu.toString())
-                    bundle.putString("id_tamu", postResponse.id_tamu.toString())
+                    bundle.putString("id_buku_tamu", postResponse.id_guest.toString())
+                    bundle.putString("id_tamu", postResponse.tamu.toString())
                     bundle.putString("suhu", postResponse.suhu)
-                    bundle.putString("jumlah_tamu_hadir", postResponse.jumlah_tamu_hadir)
+                    bundle.putString("jumlah_tamu_hadir", postResponse.tamu_hadir)
                     bundle.putString("nama_tamu", postResponse.nama_tamu)
                     bundle.putString("no_wa_tamu", postResponse.no_wa_tamu)
                     bundle.putString("status_tamu", postResponse.status_tamu)
-                    bundle.putString("nama_sesi", postResponse.nama_sesi)
-                    bundle.putString("foto", postResponse.foto)
-                    bundle.putString("nama_kedua_mempelai", postResponse.nama_kedua_mempelai)
+                    bundle.putString("foto", postResponse.image)
                     bundle.putString("created_at", postResponse.created_at)
                     intent.putExtras(bundle)
                     context.startActivity(intent)

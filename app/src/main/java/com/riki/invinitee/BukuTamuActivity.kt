@@ -7,17 +7,16 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.riki.invinitee.Class.PostAdapter
-import com.riki.invinitee.Retrofit.BukuTamu
-import com.riki.invinitee.Retrofit.DetailBukuTamu
-import com.riki.invinitee.Retrofit.RetrofitClient
+import com.riki.invinitee.Retrofit.*
 import com.riki.invinitee.SharedPreferences.Constants
 import com.riki.invinitee.SharedPreferences.PreferencesHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class BukuTamuActivity : AppCompatActivity() {
-    private val list = ArrayList<DetailBukuTamu>()
+    private val list = ArrayList<DetailOldBukuTamu>()
     private var rv_recyclerView : RecyclerView? = null
     private lateinit var sharedpref : PreferencesHelper
 
@@ -41,17 +40,17 @@ class BukuTamuActivity : AppCompatActivity() {
     private fun requestAllBukuTamu()
     {
         //API RETROFIT
-        RetrofitClient.instance.getAllBukuTamu(
+        RetrofitClient.instance.getOldBukuTamu(
             sharedpref.getDataString(Constants.PREF_ID_UNDANGAN).toString(),
             "DESC",
             token = "Bearer ${sharedpref.getDataString(Constants.PREF_TOKEN)}"
-        ).enqueue(object : Callback<BukuTamu> {
-            override fun onFailure(call: Call<BukuTamu>, t: Throwable) {
+        ).enqueue(object : Callback<BukuTamuOld> {
+            override fun onFailure(call: Call<BukuTamuOld>, t: Throwable) {
                 Log.d("Response Gagal", "Request Gagal")
             }
             override fun onResponse(
-                call: Call<BukuTamu>,
-                response: Response<BukuTamu>
+                call: Call<BukuTamuOld>,
+                response: Response<BukuTamuOld>
             ) {
                 val responseCode  = response.code().toString()
                 if(responseCode == "200") {

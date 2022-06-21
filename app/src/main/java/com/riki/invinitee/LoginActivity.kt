@@ -124,10 +124,6 @@ class LoginActivity : AppCompatActivity() {
                                 Constants.PREF_UPDATED_AT,
                                 response.body()?.data?.updated_at.toString()
                             )
-                            saveSession(
-                                Constants.PREF_ID_UNDANGAN,
-                                response.body()?.data?.has_undangan?.get(0)?.id_undangan.toString()
-                            )
                             sharedpref.simpanDataBoolean(Constants.PREF_IS_LOGIN, true)
                             val pDialog = SweetAlertDialog(this@LoginActivity, SweetAlertDialog.PROGRESS_TYPE)
                             pDialog.progressHelper.barColor = Color.parseColor("#A5DC86")

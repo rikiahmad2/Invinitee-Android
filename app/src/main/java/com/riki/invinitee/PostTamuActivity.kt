@@ -17,6 +17,7 @@ import android.widget.Toast
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.riki.invinitee.Helper.MyFunctions
 import com.riki.invinitee.Retrofit.RetrofitClient
+import com.riki.invinitee.Retrofit.oldScan
 import com.riki.invinitee.Retrofit.storedScan
 import com.riki.invinitee.SharedPreferences.Constants
 import com.riki.invinitee.SharedPreferences.PreferencesHelper
@@ -85,19 +86,19 @@ class PostTamuActivity : AppCompatActivity() {
     {
         val image = MyFunctions.bitmapToBase64(bitmap)
         //API RETROFIT
-        RetrofitClient.instance.storedScan(
+        RetrofitClient.instance.storedOldScan(
             token = "Bearer ${sharedpref.getDataString(Constants.PREF_TOKEN)}",
             id_tamu,
             image,
             edit_suhu?.text.toString(),
             edit_jumlah?.text.toString(),
-        ).enqueue(object : Callback<storedScan> {
-            override fun onFailure(call: Call<storedScan>, t: Throwable) {
+        ).enqueue(object : Callback<oldScan> {
+            override fun onFailure(call: Call<oldScan>, t: Throwable) {
                 Log.d("Response Gagal", "Request Gagal")
             }
             override fun onResponse(
-                call: Call<storedScan>,
-                response: Response<storedScan>
+                call: Call<oldScan>,
+                response: Response<oldScan>
             ) {
                 val responseCode  = response.code().toString()
                 if(responseCode == "200") {

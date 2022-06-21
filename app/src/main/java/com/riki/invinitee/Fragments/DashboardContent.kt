@@ -8,16 +8,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.riki.invinitee.BukuTamuActivity
 import com.riki.invinitee.R
 import com.riki.invinitee.ScanActivity
 import com.riki.invinitee.SharedPreferences.Constants
 import com.riki.invinitee.SharedPreferences.PreferencesHelper
+import com.riki.invinitee.WebViewActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,11 +56,14 @@ class DashboardContent : Fragment() {
 
         //GET WIDGET
         sharedpref = PreferencesHelper(requireContext())
-        val tv_email : TextView = v.findViewById(R.id.tv_email)
+        val tv_selamat : TextView = v.findViewById(R.id.tv_selamat)
         val tv_username : TextView = v.findViewById(R.id.tv_username)
         val scan_tamu : LinearLayout = v.findViewById(R.id.scan_tamu)
         val daftar_tamu : LinearLayout = v.findViewById(R.id.daftar_tamu)
         val btn_settings : LinearLayout = v.findViewById(R.id.btn_settings)
+        val icon_ig : ImageView = v.findViewById(R.id.icon_ig)
+        val icon_youtube : ImageView = v.findViewById(R.id.icon_youtube)
+        val icon_linkedln : ImageView = v.findViewById(R.id.icon_linkedln)
         val profilefrag = ProfileFragments()
 
         //SLIDER
@@ -67,7 +74,7 @@ class DashboardContent : Fragment() {
         imageSlider.setImageList(imageList)
         imageSlider.startSliding(5000)
 
-        tv_email.text = sharedpref.getDataString(Constants.PREF_EMAIL)
+        tv_selamat.text = "Selamat Datang, ${sharedpref.getDataString(Constants.PREF_NAME)} !"
         tv_username.text = sharedpref.getDataString(Constants.PREF_NAME)
 
         //Listener
@@ -80,6 +87,47 @@ class DashboardContent : Fragment() {
         btn_settings.setOnClickListener {
             makeCurrentFragment(profilefrag)
         }
+        icon_ig.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("link", "https://www.instagram.com/invinitee_/")
+            val intent = Intent(requireActivity(), WebViewActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+        icon_youtube.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("link", "https://www.youtube.com/channel/UCbnwNhZq4diKD3RO982n70w")
+            val intent = Intent(requireActivity(), WebViewActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+        icon_linkedln.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("link", "https://www.linkedin.com/in/invini-tee-4714a5218")
+            val intent = Intent(requireActivity(), WebViewActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+        imageSlider.setItemClickListener(object : ItemClickListener {
+            override fun onItemSelected(position: Int) {
+                if(position == 1)
+                {
+                    val bundle = Bundle()
+                    bundle.putString("link", "https://www.youtube.com/channel/UCbnwNhZq4diKD3RO982n70w")
+                    val intent = Intent(requireActivity(), WebViewActivity::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                }
+                else
+                {
+                    val bundle = Bundle()
+                    bundle.putString("link", "https://www.instagram.com/invinitee_/")
+                    val intent = Intent(requireActivity(), WebViewActivity::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                }
+            }
+        })
 
         return v
     }

@@ -26,20 +26,22 @@ class DetailTamuActivity : AppCompatActivity() {
 
         getWidget()
         val b = intent.extras
+        val nama_kedua_mempelai = b!!.getString("nama_kedua_mempelai")
         val nama_tamu = b!!.getString("nama_tamu")
         val jumlah_tamu_hadir = b!!.getString("jumlah_tamu_hadir")
         val suhu = b!!.getString("suhu")
         val status_tamu = b!!.getString("status_tamu")
+        val nama_sesi = b!!.getString("nama_sesi")
         val created_at = b!!.getString("created_at")
         val foto = b!!.getString("foto")
 
-        tvJudul?.text = "Wedding Of Predy & Tri Dewi"
+        tvJudul?.text = "Wedding Of ${nama_kedua_mempelai}"
         tvNamaTamu?.text = nama_tamu
         tvJumlahHadir?.text = "${jumlah_tamu_hadir} Orang"
         tvSuhu?.text = "Suhu : ${suhu}°C"
         tvStatus?.text = "Status Tamu : ${status_tamu}"
         tvWaktuScan?.text = "Di Scan Pada : ${created_at}"
-        tvNamaSesi?.text = "Nama Sesi : -"
+        tvNamaSesi?.text = "Nama Sesi : ${nama_sesi}"
         Picasso.get().load("https://www.seekpng.com/png/detail/73-730482_existing-user-default-avatar.png").into(imgLogin)
         if(!foto.isNullOrEmpty()) {
             Picasso.get().load(foto).into(imgLogin);

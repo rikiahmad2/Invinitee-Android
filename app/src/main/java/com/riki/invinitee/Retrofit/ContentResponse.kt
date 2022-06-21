@@ -98,3 +98,9 @@ data class DetailOld(
     val created_at : String?,
     val id_guest : String?,
 )
+
+data class DeleteBuku(
+    val code: String?,
+    val message: String?,
+    val data : ArrayList<DetailBukuTamu>
+)

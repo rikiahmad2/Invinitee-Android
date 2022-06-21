@@ -120,8 +120,8 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_selamat"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_black"
                         android:text="Selamat Datang!"
@@ -130,20 +130,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/tv_email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="ahmadriki95122@gmail.com"
-                        android:textColor="@color/grey"
-                        android:textSize="12sp"
-                        app:autoSizeTextType="uniform"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView3"
-                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -209,7 +195,7 @@
                         android:layout_marginTop="6dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Daftar Tamu"
+                        android:text="Data Tamu"
                         android:textColor="#252525"
                         android:textSize="10sp" />
 
@@ -236,7 +222,7 @@
                         android:layout_marginTop="6dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Scan Tamu"
+                        android:text="Scan Barcode"
                         android:textColor="#252525"
                         android:textSize="10sp" />
 
@@ -288,7 +274,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Halo, selamat datang kepada customer kami ... untuk melakukan scan tamu, kamu bisa mengakses menu scan tamu . Oh iya pastikan  koneksi internetmu menyala ya saat melakukan scan tamu. jika tidak data tidak akan masuk"/>
+                    android:text="Halo invinities! Terimakasih ya sudah mempercayakan kami menjadi bagian di hari istimewa kamu. Aplikasi ini dipakai untuk media scan barcode tamu di acara kamu. Selama acara berlangsung pastikan koneksi internet kamu menyala ya!"/>
             </LinearLayout>
 
             <LinearLayout
@@ -302,7 +288,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jika menemukan kesulitan atau kendala, jangan sungkan untuk menghubungi team kami di menu bantuan, salam hangat ... team invinitee"/>
+                    android:text="Kalau ada yang mau kamu tanyakan terkait penggunaan aplikasi ini bisa hubungi tim kami dibagian menu bantuan. Terimakasih! Salam hangat, Invinitee"/>
             </LinearLayout>
 
 
@@ -320,7 +306,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="6dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Berita"
+                android:text="About Us"
                 android:textSize="16sp"
                 android:textColor="@color/black" />
 
@@ -362,17 +348,25 @@
                 android:layout_marginBottom="100dp"
                 >
                 <ImageView
-                    android:id="@+id/icon_fb"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="5dp"
-                    app:srcCompat="@drawable/ic_facebook"/>
-                <ImageView
                     android:id="@+id/icon_ig"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="5dp"
                     app:srcCompat="@drawable/ic_instagram"/>
+
+                <ImageView
+                    android:id="@+id/icon_youtube"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    app:srcCompat="@drawable/ic_youtube"/>
+
+                <ImageView
+                    android:id="@+id/icon_linkedln"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    app:srcCompat="@drawable/ic_linkedin"/>
             </LinearLayout>
 
 

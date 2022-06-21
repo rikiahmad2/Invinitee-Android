@@ -46,4 +46,10 @@ interface Api {
         @Field("suhu") suhu: String?,
         @Field("jumlah_tamu_hadir") jumlah_tamu_hadir: String?,
     ) : Call<storedScan>
+
+    @DELETE("v1/bukutamu/deletebukutamu/{id_buku_tamu}")
+    fun deleteBukuTamu(
+        @Header("Authorization") token: String?,
+        @Path("id_buku_tamu") id_buku_tamu: String?,
+    ) : Call<DeleteBuku>
 }

@@ -1,11 +1,13 @@
 package com.riki.invinitee
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.riki.invinitee.Class.PostAdapter
 import com.riki.invinitee.Retrofit.*
 import com.riki.invinitee.SharedPreferences.Constants
@@ -16,7 +18,7 @@ import retrofit2.Response
 import java.util.*
 
 class BukuTamuActivity : AppCompatActivity() {
-    private val list = ArrayList<DetailOldBukuTamu>()
+    private val list = ArrayList<DetailBukuTamu>()
     private var rv_recyclerView : RecyclerView? = null
     private lateinit var sharedpref : PreferencesHelper
 
@@ -40,29 +42,31 @@ class BukuTamuActivity : AppCompatActivity() {
     private fun requestAllBukuTamu()
     {
         //API RETROFIT
-        RetrofitClient.instance.getOldBukuTamu(
+        RetrofitClient.instance.getAllBukuTamu(
             sharedpref.getDataString(Constants.PREF_ID_UNDANGAN).toString(),
             "DESC",
             token = "Bearer ${sharedpref.getDataString(Constants.PREF_TOKEN)}"
-        ).enqueue(object : Callback<BukuTamuOld> {
-            override fun onFailure(call: Call<BukuTamuOld>, t: Throwable) {
+        ).enqueue(object : Callback<BukuTamu> {
+            override fun onFailure(call: Call<BukuTamu>, t: Throwable) {
                 Log.d("Response Gagal", "Request Gagal")
             }
             override fun onResponse(
-                call: Call<BukuTamuOld>,
-                response: Response<BukuTamuOld>
+                call: Call<BukuTamu>,
+                response: Response<BukuTamu>
             ) {
                 val responseCode  = response.code().toString()
                 if(responseCode == "200") {
                     response.body()?.let { list.addAll((it.data)) }
                     val adapter = PostAdapter(this@BukuTamuActivity,list)
                     rv_recyclerView?.adapter = adapter
-                    Log.d("TAG/DATA", list.toString())
                 }
                 else
                 {
-                    Log.d("Bad Response", response.body()?.message.toString()+responseCode)
-                    Log.d("TOKEN", sharedpref.getDataString(Constants.PREF_TOKEN).toString())
+                    val pDialog = SweetAlertDialog(this@BukuTamuActivity, SweetAlertDialog.ERROR_TYPE)
+                    pDialog.progressHelper.barColor = Color.parseColor("#FF0000")
+                    pDialog.titleText = "Gagal, Periksa Koneksi Anda"
+                    pDialog.setCancelable(false)
+                    pDialog.show()
                 }
             }
         })

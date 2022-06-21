@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.annotation.RequiresApi
@@ -26,6 +27,7 @@ import com.journeyapps.barcodescanner.ScanIntentResult
 
 class ScanActivity : AppCompatActivity() {
     private var scanUser : Button? = null
+    private var backBtn : ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,11 +76,16 @@ class ScanActivity : AppCompatActivity() {
         scanUser?.setOnClickListener{
             barcodeLauncher!!.launch(ScanOptions())
         }
+        backBtn?.setOnClickListener {
+            moveIntent(this@ScanActivity, DashboardActivity::class.java)
+            finish()
+        }
     }
 
     private fun getWidget()
     {
         scanUser = findViewById(R.id.scanUser)
+        backBtn = findViewById(R.id.backBtn)
     }
 
     private fun moveIntent(intent: Activity, classs: Class<*>?){

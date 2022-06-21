@@ -52,7 +52,6 @@ class ProfileFragments : Fragment() {
         val nama_user : TextView = v.findViewById(R.id.nama_user)
         val profile_email : TextView = v.findViewById(R.id.profile_email)
         val tv_nomor_wa : TextView = v.findViewById(R.id.tv_nomor_wa)
-        val tv_created_at : TextView = v.findViewById(R.id.tv_created_at)
         val linear_bantuan : LinearLayout = v.findViewById(R.id.linear_bantuan)
 
         //FORMATER TANGGAL
@@ -67,7 +66,6 @@ class ProfileFragments : Fragment() {
         nama_user.text = sharedpref.getDataString(Constants.PREF_NAME)
         profile_email.text = sharedpref.getDataString(Constants.PREF_EMAIL)
         tv_nomor_wa.text = sharedpref.getDataString(Constants.PREF_NOMOR_WA)
-        tv_created_at.text = formattedDate
 
 
         //Lisetener

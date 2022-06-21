@@ -86,19 +86,19 @@ class PostTamuActivity : AppCompatActivity() {
     {
         val image = MyFunctions.bitmapToBase64(bitmap)
         //API RETROFIT
-        RetrofitClient.instance.storedOldScan(
+        RetrofitClient.instance.storedScan(
             token = "Bearer ${sharedpref.getDataString(Constants.PREF_TOKEN)}",
             id_tamu,
             image,
             edit_suhu?.text.toString(),
             edit_jumlah?.text.toString(),
-        ).enqueue(object : Callback<oldScan> {
-            override fun onFailure(call: Call<oldScan>, t: Throwable) {
+        ).enqueue(object : Callback<storedScan> {
+            override fun onFailure(call: Call<storedScan>, t: Throwable) {
                 Log.d("Response Gagal", "Request Gagal")
             }
             override fun onResponse(
-                call: Call<oldScan>,
-                response: Response<oldScan>
+                call: Call<storedScan>,
+                response: Response<storedScan>
             ) {
                 val responseCode  = response.code().toString()
                 if(responseCode == "200") {
@@ -116,6 +116,7 @@ class PostTamuActivity : AppCompatActivity() {
                         sDialog.show()
                         Handler().postDelayed({
                             moveIntent(this@PostTamuActivity, ScanActivity::class.java)
+                            finish()
                         }, 2000)
                     }, 2000)
                 }

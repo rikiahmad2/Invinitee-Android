@@ -1,5 +1,8 @@
 package com.riki.invinitee.Retrofit
 
+import java.io.File
+import java.io.FileOutputStream
+
 data class LoginAndroid(
     val message: String?,
     val token: String?,
@@ -103,4 +106,8 @@ data class DeleteBuku(
     val code: String?,
     val message: String?,
     val data : ArrayList<DetailBukuTamu>
+)
+
+data class downloadPDF(
+    val pdf: FileOutputStream?
 )

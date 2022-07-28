@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Invinitee">
         <activity
+            android:name=".PDFViewerActivity"
+            android:exported="true" />
+        <activity
             android:name=".DetailTamuActivity"
             android:exported="true" />
         <activity

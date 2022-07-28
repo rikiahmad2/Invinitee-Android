@@ -52,4 +52,10 @@ interface Api {
         @Header("Authorization") token: String?,
         @Path("id_buku_tamu") id_buku_tamu: String?,
     ) : Call<DeleteBuku>
+
+    @GET("v1/bukutamu/getbukutamupdf/{id_undangan}")
+    fun downloadPDF(
+        @Header("Authorization") token: String?,
+        @Path("id_undangan") id_undangan: String?,
+    ) : Call<downloadPDF>
 }
